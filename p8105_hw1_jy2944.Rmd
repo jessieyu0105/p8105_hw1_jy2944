@@ -1,0 +1,6 @@
+---
+title: "p8105 - Homework 1"
+author: "Jie Yu"
+date: 2018-09-15
+output: github_document
+---
