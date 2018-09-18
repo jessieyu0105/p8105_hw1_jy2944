@@ -17,6 +17,8 @@ library(tidyverse)
 
 # Problem 1
 
+### Data Frame
+
 The chunk below creates a data frame containing:
 
 * A random sample of size 10 from a uniform[0, 5] distribution
@@ -39,7 +41,7 @@ p1_df = tibble(
 ```
 
 
-Then we try to take the mean of each variable in the above data frame.
+### Mean of each variable 
 
 * The mean of variable `unif_samp` is `r mean(p1_df$unif_samp)`
 * The mean of variable `vec_logical` is `r mean(p1_df$vec_logical)`
@@ -49,6 +51,7 @@ Then we try to take the mean of each variable in the above data frame.
 We successfully get the mean of variables `unif_samp` and `vec_logical`, but we does not get the mean of variables `vec_char` and `vec_factor`. That is because we cannot calculate the mean of character and factor variables.
 
 
+###  Convert variables
 
 The chunk below applies the `as.numeric` function to the logical, character, and factor variables.
 
@@ -62,12 +65,11 @@ as.numeric(p1_df$vec_factor)
 The scripts above convert the logical, character, and factor variables from their original types to numeric. 
 
 
-
-The chunk below converts the character variable from character to factor to numeric; similarly, converts the factor variable from factor to character to numeric. 
+Then we use the following chunk to convert the character variable from character to factor to numeric; similarly, convert the factor variable from factor to character to numeric. 
 
 ```{r convert_variables}
 # Convert the character variable to facter, then to numeric
-as.numeric(factor(p1_df$vec_character))   
+as.numeric(factor(p1_df$vec_char))   
 
 # Convert the factor variable to character, then to numeric
 as.numeric(as.character(p1_df$vec_factor))
@@ -82,6 +84,8 @@ However, the second conversion outputs a sequence of NA values. From this experi
 
 
 # Problem 2
+
+### Data Frame
 
 The chunk below creates a data frame for plotting, which comprises of:
 
@@ -106,18 +110,22 @@ p2_df = tibble(
 ```
 
 
+### Description of vectors
+
 * The size of the dataset is `r nrow(p2_df)` rows, and `r ncol(p2_df)` columns. 
 * The mean of x is `r mean(p2_df$x)`, and median of x is `r median(p2_df$x)`. 
 * The proportion of cases for which the logical vector is `TRUE` is `r nrow((subset(p2_df, logical_vector == TRUE))) / nrow(p2_df)`
 
 
-
-Now we present a couple of scatterplots on the basis of the above data frame.
+### Scatterplots
+Now we present a couple of scatterplots by using different variables as color points.
 
 First, we show a scatterplot of `y` vs `x` by using the logical variable as color points.
 
 ```{r scatter_logical}
 ggplot(p2_df, aes(x = x, y = y, color = logical_vector)) + geom_point()
+
+# Export my first scatterplot to my project directory
 ggsave("scatter_logical.pdf")
 ```
 
@@ -132,7 +140,6 @@ Then, we show a scatterplot of `y` vs `x` by using the factor variable as color 
 ```{r scatter_factor}
 ggplot(p2_df, aes(x = x, y = y, color = factor_vector)) + geom_point()
 ```
-
 
 
 
