@@ -141,6 +141,9 @@ Then, we show a scatterplot of `y` vs `x` by using the factor variable as color 
 ggplot(p2_df, aes(x = x, y = y, color = factor_vector)) + geom_point()
 ```
 
+We can see that there are only two seperate colors in the color scale of the first and third scatterplots, because logical and factor variables are categorical variables.
+
+In contrast, there are color gradient in the color scale of the second scatterplot, because numeric variable is viewed as continuous variable by default.
 
 
 
