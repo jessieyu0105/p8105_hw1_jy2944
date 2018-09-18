@@ -17,7 +17,12 @@ library(tidyverse)
 
 # Problem 1
 
-The chunk below creates a data frame containing a random sample of size 10 from a uniform[0, 5] distribution, a logical vector indicating whether elements of the sample are greater than 2, a (length-10) character vector, and a (length-10) factor vector.
+The chunk below creates a data frame containing:
+
+* A random sample of size 10 from a uniform[0, 5] distribution
+* A logical vector indicating whether elements of the sample are greater than 2
+* A (length-10) character vector
+* A (length-10) factor vector
 
 ```{r p1_dataframe}
 # Set seed to ensure reproducibility
@@ -33,23 +38,15 @@ p1_df = tibble(
 
 ```
 
-Below is the data frame:
 
-```{r show_the_dataframe, echo = FALSE}
-# Show the data frame, without displaying the code
-p1_df 
-```
-
-
-
-Take the mean of each variable in the above data frame.
+Then we try to take the mean of each variable in the above data frame.
 
 * The mean of variable `unif_samp` is `r mean(p1_df$unif_samp)`
 * The mean of variable `vec_logical` is `r mean(p1_df$vec_logical)`
 * The mean of variable `vec_char` is `r mean(p1_df$vec_char)`
 * The mean of variable `vec_factor` is `r mean(p1_df$vec_factor)`
 
-We get the mean of variables `unif_samp` and `vec_logical`, but we does not get the mean of variables `vec_char` and `vec_factor`. That is because we cannot calculate the mean of character and factor variables.
+We successfully get the mean of variables `unif_samp` and `vec_logical`, but we does not get the mean of variables `vec_char` and `vec_factor`. That is because we cannot calculate the mean of character and factor variables.
 
 
 
@@ -131,6 +128,7 @@ ggplot(p2_df, aes(x = x, y = y, color = numeric_vector)) + geom_point()
 ```
 
 Then, we show a scatterplot of `y` vs `x` by using the factor variable as color points.
+
 ```{r scatter_factor}
 ggplot(p2_df, aes(x = x, y = y, color = factor_vector)) + geom_point()
 ```
