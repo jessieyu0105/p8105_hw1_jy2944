@@ -53,6 +53,10 @@ p1_df = tibble(
 
 We successfully get the mean of variables `unif_samp` and `vec_logical`, but we does not get the mean of variables `vec_char` and `vec_factor`. That is because we cannot calculate the mean of character and factor variables which are categorical variables.
 
+Although logical variable also belongs to categorical variable, logical vectors can be coerced to integer vectors in contexts where a numerical value is required, with `TRUE` being mapped to 1, `FALSE` to 0 (source is [here](https://stat.ethz.ch/R-manual/R-devel/library/base/html/logical.html)). That is the reason why we can also get the mean of logical variable `vec_logical`.
+
+
+
  
 ###  Convert variables
 
@@ -146,7 +150,7 @@ ggplot(p2_df, aes(x = x, y = y, color = factor_vector)) + geom_point()
 
 We can see that there are only two seperate colors in the color scale of the first and third scatterplots, because logical and factor variables are categorical variables.
 
-In contrast, there are color gradient in the color scale of the second scatterplot, because numeric variable is viewed as continuous variable by default, even though there are only two numbers (0 and 1) in this case.
+In contrast, there are color gradient in the color scale of the second scatterplot, because numeric variable is viewed as quantitative variable by default, even though there are only two numbers (0 and 1) in this case.
 
 
 
