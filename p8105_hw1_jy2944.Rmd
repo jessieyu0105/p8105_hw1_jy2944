@@ -92,9 +92,9 @@ However, the second conversion outputs a sequence of NA values. From this experi
 
 The chunk below creates a data frame for plotting, which comprises of:
 
-* x: a random sample of size 1000 from a standard Normal distribution
-* y: a random sample of size 1000 from a standard Normal distribution
-* A logical vector indicating whether the x + y > 0
+* `x`: a random sample of size 1000 from a standard Normal distribution
+* `y`: a random sample of size 1000 from a standard Normal distribution
+* A logical vector indicating whether the `x + y > 0`
 * A numeric vector created by coercing the above logical vector
 * A factor vector created by coercing the above logical vector
 
@@ -116,7 +116,7 @@ p2_df = tibble(
 ### Description of vectors
 
 * The size of the dataset is `r nrow(p2_df)` rows, and `r ncol(p2_df)` columns. 
-* The mean of x is `r mean(p2_df$x)`, and median of x is `r median(p2_df$x)`. 
+* The mean of `x` is `r mean(p2_df$x)`, and median of `x` is `r median(p2_df$x)`. 
 * The proportion of cases for which the logical vector is `TRUE` is `r (nrow((subset(p2_df, logical_vector == TRUE))) / nrow(p2_df)) * 100`%.
 
 
@@ -146,7 +146,7 @@ ggplot(p2_df, aes(x = x, y = y, color = factor_vector)) + geom_point()
 
 We can see that there are only two seperate colors in the color scale of the first and third scatterplots, because logical and factor variables are categorical variables.
 
-In contrast, there are color gradient in the color scale of the second scatterplot, because numeric variable is viewed as continuous variable by default.
+In contrast, there are color gradient in the color scale of the second scatterplot, because numeric variable is viewed as continuous variable by default, even though there are only two numbers (0 and 1) in this case.
 
 
 
