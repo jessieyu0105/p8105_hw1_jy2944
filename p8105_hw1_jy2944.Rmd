@@ -10,8 +10,11 @@ output:
 
 
 ```{r setup, include = FALSE}
-# Load the package tidyverse, without displaying the code and the result
+# Load the package tidyverse
 library(tidyverse)
+
+# change the system warning from Chinese to English
+Sys.setenv(LANG = "en")  
 ```
 
 
