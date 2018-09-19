@@ -51,16 +51,16 @@ p1_df = tibble(
 * The mean of variable `vec_char` is `r mean(p1_df$vec_char)`
 * The mean of variable `vec_factor` is `r mean(p1_df$vec_factor)`
 
-We successfully get the mean of variables `unif_samp` and `vec_logical`, but we does not get the mean of variables `vec_char` and `vec_factor`. That is because we cannot calculate the mean of character and factor variables.
+We successfully get the mean of variables `unif_samp` and `vec_logical`, but we does not get the mean of variables `vec_char` and `vec_factor`. That is because we cannot calculate the mean of character and factor variables which are categorical variables.
 
-
+ 
 ###  Convert variables
 
 The chunk below applies the `as.numeric` function to the logical, character, and factor variables.
 
-```{r apply_function_as.numeric, eval = FALSE}
+```{r apply_function_as.numeric, results = 'hide', warning = FALSE}
 as.numeric(p1_df$vec_logical)
-as.numeric(p1_df$vec_character)
+as.numeric(p1_df$vec_char)
 as.numeric(p1_df$vec_factor)
 
 ```
@@ -117,7 +117,7 @@ p2_df = tibble(
 
 * The size of the dataset is `r nrow(p2_df)` rows, and `r ncol(p2_df)` columns. 
 * The mean of x is `r mean(p2_df$x)`, and median of x is `r median(p2_df$x)`. 
-* The proportion of cases for which the logical vector is `TRUE` is `r nrow((subset(p2_df, logical_vector == TRUE))) / nrow(p2_df)`
+* The proportion of cases for which the logical vector is `TRUE` is `r (nrow((subset(p2_df, logical_vector == TRUE))) / nrow(p2_df)) * 100`%.
 
 
 ### Scatterplots
@@ -129,7 +129,7 @@ First, we show a scatterplot of `y` vs `x` by using the logical variable as colo
 ggplot(p2_df, aes(x = x, y = y, color = logical_vector)) + geom_point()
 
 # Export my first scatterplot to my project directory
-ggsave("scatter_logical.pdf")
+ggsave("./scatter_logical.pdf")
 ```
 
 Next, we show a scatterplot of `y` vs `x` by using the numeric variable as color points.
