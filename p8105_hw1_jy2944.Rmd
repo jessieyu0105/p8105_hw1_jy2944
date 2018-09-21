@@ -127,7 +127,7 @@ p2_df = tibble(
 ### Scatterplots
 Now we present a couple of scatterplots by using different variables as color points.
 
-First, we show a scatterplot of `y` vs `x` by using the logical variable as color points.
+First, we show a scatterplot of `y` vs `x` by using **the logical variable** as color points.
 
 ```{r scatter_logical}
 ggplot(p2_df, aes(x = x, y = y, color = logical_vector)) + geom_point()
@@ -136,13 +136,13 @@ ggplot(p2_df, aes(x = x, y = y, color = logical_vector)) + geom_point()
 ggsave("./scatter_logical.pdf")
 ```
 
-Next, we show a scatterplot of `y` vs `x` by using the numeric variable as color points.
+Next, we show a scatterplot of `y` vs `x` by using **the numeric variable** as color points.
 
 ```{r scatter_numeric}
 ggplot(p2_df, aes(x = x, y = y, color = numeric_vector)) + geom_point()
 ```
 
-Then, we show a scatterplot of `y` vs `x` by using the factor variable as color points.
+Then, we show a scatterplot of `y` vs `x` by using **the factor variable** as color points.
 
 ```{r scatter_factor}
 ggplot(p2_df, aes(x = x, y = y, color = factor_vector)) + geom_point()
@@ -150,7 +150,7 @@ ggplot(p2_df, aes(x = x, y = y, color = factor_vector)) + geom_point()
 
 We can see that there are only two seperate colors in the color scale of the first and third scatterplots, because logical and factor variables are categorical variables.
 
-In contrast, there are color gradient in the color scale of the second scatterplot, because numeric variable is viewed as quantitative variable by default, even though there are only two numbers (0 and 1) in this case.
+In contrast, there is color gradient in the color scale of the second scatterplot, because numeric variable is viewed as quantitative variable by default, even though there are only two numbers (0 and 1) in this case.
 
 
 
